@@ -1,7 +1,24 @@
-<% @cocktails.each do |cocktail| %>
-  <h2><%= link_to cocktail.name, cocktail_path(cocktail)  %></h2>
-<% end %>
-<%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
-
-<%= cl_image_tag("l911pglkx0948w3ybtbm",
-      width: 400, height: 300, crop: :fill) %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url("whiskey-banner.jpg")%>)"
+  <div class="container">
+    <h1>"Quand j'bois le Henny’, le Henny' me noie"</h1>
+    <p>Hamza</p>
+  </div>
+</div>
+  <div class="container2">
+    <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-product">
+        <%= cl_image_tag cocktail.photo, width: 120, height: 120, crop: :fill %>
+        <div class="card-product-infos">
+        <%= link_to cocktail.name, cocktail_path(cocktail)  %>
+        <p> Ingrédients <strong>+ de détails</strong></p>
+        </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>
+<div class="footer text-center" style="margin: 20px;">
+  <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+</div>
